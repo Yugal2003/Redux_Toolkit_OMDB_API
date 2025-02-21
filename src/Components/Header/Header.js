@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaRegUserCircle } from "react-icons/fa";
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchAsyncMovies, fetchAsyncShows } from '../../features/movies/movieSlice';
 
 const Header = ({isHeaderVisible}) => {
+  const [terms,setTerms] = useState("");
+  const dispatch = useDispatch();
+
+  const submitHandler = (e) =>{
+    e.preventDefault();
+    dispatch(fetchAsyncMovies(terms))
+    dispatch(fetchAsyncShows(terms));
+    setTerms("");
+  }
   return (
     <div>
       <div
@@ -17,8 +28,16 @@ const Header = ({isHeaderVisible}) => {
                 <h1 className='cursor-pointer text-3xl font-bold text-white'>Movie App</h1>
               </Link>
             </div>
-            <div>
-              <FaRegUserCircle color='white' className='cursor-pointer' size={35}/>
+            <div className='flex gap-8 items-center'>
+              <div className='flex items-center gap-4'>
+                <form onSubmit={submitHandler}>
+                  <input className='p-1 rounded-lg' type='text' value={terms} placeholder='Search Movie & Shows...' onChange={(e)=> setTerms(e.target.value)}/>
+                  <button className='ml-4' type='submit'></button>
+                </form>
+              </div>
+              <div>
+                <FaRegUserCircle color='white' className='cursor-pointer' size={35}/>
+              </div>
             </div>
         </div>
       </div>

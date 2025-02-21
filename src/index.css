@@ -5,3 +5,8 @@
 body{
     background-color: rgb(1, 1, 63);
 }
+.slick-slider {
+    width: 100%;
+    max-width: 1440px; /* Match Tailwind's xl size */
+    margin: auto;
+}

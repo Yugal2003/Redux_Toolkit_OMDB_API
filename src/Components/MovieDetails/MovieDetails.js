@@ -30,11 +30,11 @@ const MovieDetails = () => {
         (
           <div className='flex flex-col md:flex-row justify-between mx-auto px-4 items-center w-full'>
               {/* left side */}
-              <div className='w-[80%] p-8'>
+              <div className='w-[100%] md:w-[80%] p-8'>
                   <div>
                     <h1 className='text-white text-3xl font-bold'>{data.Title}</h1>
                   </div>
-                  <div className='flex pt-8 gap-12'>
+                  <div className='flex flex-col md:flex-row pt-8 gap-12'>
                     <span className='text-blue-500'>IMDB Rating : {data.imdbRating}</span>
                     <span className='text-blue-500'>IMDB Votes : {data.imdbVotes}</span>
                     <span className='text-blue-500'>Runtime : {data.Runtime}</span>
@@ -67,7 +67,7 @@ const MovieDetails = () => {
                   </div>
               </div>
               {/* right side */}
-              <div className='w-[20%] p-4'>
+              <div className='w-[80%] md:w-[20%] p-4'>
                 <img src={data.Poster} className='rounded-lg hover:scale-105 duration-500 cursor-pointer' alt='img'/>
               </div>
           </div>

@@ -2,15 +2,20 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { getAllMovies, getAllShows } from '../../features/movies/movieSlice'
 import MovieCard from '../MovieCard/MovieCard'
+import Slider from "react-slick";
+import { settings } from '../../Common/Setting';
 
 const MovieListing = () => {
+      
     const movies = useSelector(getAllMovies)
     const shows = useSelector(getAllShows)
     console.log(movies.movies);
     let renderMovies,renderShows = ""
 
     renderMovies = movies.Response === 'True' ? (movies.Search.map((movie,index) => (
-        <MovieCard key={index} data={movie}/>
+      <div key={index} className="px-2">
+        <MovieCard data={movie}/>
+      </div>
       ))
     ) 
     : 
@@ -19,7 +24,9 @@ const MovieListing = () => {
     )
 
     renderShows = shows.Response === 'True' ? (shows.Search.map((movie,index) => (
-      <MovieCard key={index} data={movie}/>
+      <div key={index} className="px-2">
+        <MovieCard key={index} data={movie}/>
+      </div>
     ))
   ) 
   : 
@@ -32,17 +39,17 @@ const MovieListing = () => {
             {/* Movies Section */}
             <div>
                 <h2 className="text-2xl font-bold mb-4 text-white">Movies</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                    {renderMovies}
-                </div>
+                {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"> */}
+                <Slider {...settings}>{renderMovies}</Slider>
+                {/* </div> */}
             </div>
 
             {/* Shows Section */}
             <div>
                 <h2 className="text-2xl font-bold mb-4 text-white">Shows</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                    {renderShows}
-                </div>
+                {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"> */}
+                <Slider {...settings}>{renderShows}</Slider>
+                {/* </div> */}
             </div>
         </div>
   )

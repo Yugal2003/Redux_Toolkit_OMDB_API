@@ -7,7 +7,7 @@ const MovieCard = (props) => {
   
   return (
     <Link to={`/movie/${data.imdbID}`}>
-      <div className="cursor-pointer max-h-[500px] w-auto p-4 rounded-lg shadow-2xl bg-white">
+      <div className="cursor-pointer w-auto p-4 rounded-lg shadow-2xl bg-white">
           <div>
               <img src={data.Poster} alt={data.Title} className="hover:scale-105 duration-500 w-full h-auto rounded-lg object-cover bg-no-repeat " />
           </div>
