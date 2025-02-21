@@ -28,8 +28,8 @@ const Footer = () => {
 
         {/* Right Section - Links */}
         <div className="text-sm text-gray-400 mt-4 md:mt-0">
-          <a href="/privacy-policy" className="hover:text-white px-2">Privacy Policy</a> | 
-          <a href="/terms-of-service" className="hover:text-white px-2">Terms of Service</a>
+          <a href="#" className="hover:text-white px-2">Privacy Policy</a> | 
+          <a href="#" className="hover:text-white px-2">Terms of Service</a>
         </div>
       </div>
     </footer>
